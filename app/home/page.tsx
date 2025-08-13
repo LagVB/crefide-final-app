@@ -15,7 +15,7 @@ export default async function Home() {
 
     return <>
         <p>Hello {data.user.email}</p>
-        <Link href="/myProducts">Meus Produtos</Link>
+        <Link href="/products">Meus Produtos</Link>
         <SignOut />
     </>
 }
