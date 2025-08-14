@@ -11,7 +11,8 @@ export default function CreateProduct() {
         const name = formData.get('name')
         const description = formData.get('description')
         const price = formData.get('price')
-        const product = { name, description, price };
+        const points = formData.get('points')
+        const product = { name, description, price, points };
         console.log(product);
         try {
             const response = await fetch('/api/createProduct', {
@@ -37,6 +38,8 @@ export default function CreateProduct() {
         <input id="description" type="text" name="description" placeholder="Descrição do Produto" />
         <label>Preço do Produto</label>
         <input id="price" type="text" name="price" placeholder="Preço do Produto" />
+        <label>Pontos do Produto</label>
+        <input id="points" type="text" name="points" placeholder="Pontos do Produto" />
         <button type="submit">Criar Produto</button>
     </form>
 }

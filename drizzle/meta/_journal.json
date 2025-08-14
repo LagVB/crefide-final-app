@@ -15,6 +15,13 @@
       "when": 1755091035497,
       "tag": "0001_dry_shooting_star",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1755213967935,
+      "tag": "0002_condemned_kate_bishop",
+      "breakpoints": true
     }
   ]
 }
