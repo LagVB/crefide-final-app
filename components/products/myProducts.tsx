@@ -14,13 +14,13 @@ export default function MyProducts() {
     }, [])
 
     return <ul>
-        {products?.map((product: any) => (
+        {products ? products.map((product: any) => (
             <li key={product.id}>
                 <h2>{product.name}</h2>
                 <p>{product.description}</p>
                 <p>{product.price}</p>
             </li>
-        ))}
+        )) : <p>Nenhum produto encontrado</p>}
     </ul>
 }
 

@@ -15,7 +15,7 @@ export async function GET(req: NextRequest) {
         }
         const userId = data.user?.id
         if (!userId) return NextResponse.json({ message: "Usuário não logado!" })
-        const myProducts = await db.select().from(products).where(eq(products.user_id, userId))
+        const myProducts = await db.select().from(products).where(eq(products.userId, userId))
         return NextResponse.json(myProducts);
     } catch (error) {
         console.error(error)
