@@ -22,6 +22,13 @@
       "when": 1755213967935,
       "tag": "0002_condemned_kate_bishop",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1755467634737,
+      "tag": "0003_wandering_secret_warriors",
+      "breakpoints": true
     }
   ]
 }

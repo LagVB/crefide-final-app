@@ -1,20 +1,18 @@
 import { redirect } from 'next/navigation'
-
-import { createClient } from '@/utils/supabase/server'
 import SignOut from '@/components/signout/SignOut'
 import Link from 'next/link'
+import { getEnhancedUser } from '@/utils/getUser/user'
 
 
 export default async function Home() {
 
-    const supabase = await createClient()
-    const { data, error } = await supabase.auth.getUser()
+    const { data, error } = await getEnhancedUser()
     if (error || !data?.user) {
         redirect('/login')
     }
 
     return <>
-        <p>Hello {data.user.email}</p>
+        <p>Hello {data.user.profile?.name}</p>
         <Link href="/products">Meus Produtos</Link>
         <SignOut />
     </>
