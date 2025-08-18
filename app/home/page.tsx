@@ -1,18 +1,17 @@
 import { redirect } from 'next/navigation'
 import SignOut from '@/components/signout/SignOut'
 import Link from 'next/link'
-import { getEnhancedUser } from '@/utils/getUser/user'
+import { getServerUser } from '@/utils/getServerUser/user'
 
 
-export default async function Home() {
+export default async function HomePage() {
 
-    const { data, error } = await getEnhancedUser()
+    const { data, error } = await getServerUser()
     if (error || !data?.user) {
         redirect('/login')
     }
 
     return <>
-        <p>Hello {data.user.profile?.name}</p>
         <Link href="/products">Meus Produtos</Link>
         <SignOut />
     </>

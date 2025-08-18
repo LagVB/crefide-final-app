@@ -10,7 +10,7 @@ export interface EnhancedUser {
     profile: SelectUser | null
 }
 
-export async function getEnhancedUser(): Promise<{
+export async function getServerUser(): Promise<{
     data: { user: EnhancedUser | null }
     error: any
 }> {
@@ -46,5 +46,22 @@ export async function getEnhancedUser(): Promise<{
             data: { user: null },
             error: error
         }
+    }
+}
+
+export async function getUserProfile(email: string): Promise<SelectUser | null> {
+    if (!email) return null
+
+    try {
+        const userProfile = await db
+            .select()
+            .from(users)
+            .where(eq(users.email, email))
+            .limit(1)
+
+        return userProfile[0] || null
+    } catch (error) {
+        console.error('Error fetching user profile:', error)
+        return null
     }
 }
