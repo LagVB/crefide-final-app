@@ -14,6 +14,6 @@ export default async function Header() {
             {!data?.user && <Link href="/login">Login</Link>}
             {!data?.user && <Link href="/register">Register</Link>}
         </nav>
-        <p>Oi {user ? user.name?.split(" ")[0] : 'Guest'}</p>
+        <p className="">Olá, {user ? user.name?.split(" ")[0] : 'Visitante'}</p>
     </header>
 }
